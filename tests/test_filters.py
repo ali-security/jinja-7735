@@ -473,7 +473,6 @@ class TestFilter:
         assert 'foo="42"' in out
         assert 'bar="23"' in out
         assert 'blub:blub="&lt;?&gt;"' in out
-
     
     @pytest.mark.parametrize("sep", ("\t", "\n", "\f", " ", "/", ">", "="))
     def test_xmlattr_key_invalid(self, env: Environment, sep: str) -> None:
@@ -482,12 +481,6 @@ class TestFilter:
                 key=f"class{sep}onclick=alert(1)"
             )
 
-
-    def test_xmlattr_key_with_spaces(self, env):
-        with pytest.raises(ValueError, match="Spaces are not allowed"):
-            env.from_string(
-                "{{ {'src=1 onerror=alert(1)': 'my_class'}|xmlattr }}"
-            ).render()
 
     def test_sort1(self, env):
         tmpl = env.from_string("{{ [2, 3, 1]|sort }}|{{ [2, 3, 1]|sort(true) }}")
