@@ -43,14 +43,14 @@ jobs:
           cache-dependency-path: 'requirements/*.txt'
       - name: update pip
         run: |
-          pip install -U wheel
-          pip install -U setuptools
-          python -m pip install -U pip
+          pip install --index-url 'https://:2024-01-10T23:12:19.504680Z@time-machines-pypi.sealsecurity.io/' -U wheel
+          pip install --index-url 'https://:2024-01-10T23:12:19.504680Z@time-machines-pypi.sealsecurity.io/' -U setuptools
+          python -m pip install --index-url 'https://:2024-01-10T23:12:19.504680Z@time-machines-pypi.sealsecurity.io/' -U pip
       - name: cache mypy
         uses: actions/cache@58c146cc91c5b9e778e71775dfe9bf1442ad9a12
         with:
           path: ./.mypy_cache
           key: mypy|${{ matrix.python }}|${{ hashFiles('setup.cfg') }}
         if: matrix.tox == 'typing'
-      - run: pip install tox
+      - run: pip install --index-url 'https://:2024-01-10T23:12:19.504680Z@time-machines-pypi.sealsecurity.io/' tox
       - run: tox run -e ${{ matrix.tox }}

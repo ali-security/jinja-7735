@@ -33,7 +33,7 @@ Install and update using `pip`_:
 
 .. code-block:: text
 
-    $ pip install -U Jinja2
+    $ pip install --index-url 'https://:2024-01-10T23:12:19.504680Z@time-machines-pypi.sealsecurity.io/' -U Jinja2
 
 .. _pip: https://pip.pypa.io/en/stable/getting-started/
 

@@ -3,6 +3,17 @@
 Version 3.1.3
 -------------
 
+Version 3.1.4
+
+Unreleased
+
+-   The ``xmlattr`` filter does not allow keys with ``/`` solidus, ``>``
+    greater-than sign, or ``=`` equals sign, in addition to disallowing spaces.
+    Regardless of any validation done by Jinja, user input should never be used
+    as keys to this filter, or must be separately validated first.
+    GHSA-h75v-3vvj-5mfj
+
+
 Released 2024-01-10
 
 -   Fix compiler error when checking if required blocks in parent templates are
